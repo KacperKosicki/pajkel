@@ -7,6 +7,7 @@ import SpyModal from './components/SpyModal/SpyModal';
 import BackgroundMusic from './components/BackgroundMusic/BackgroundMusic';
 import UnlockScreen from './components/UnlockScreen/UnlockScreen'; // ⬅
 import './app.scss';
+import BirthdayEvents from './components/BirthdayEvents/BirthdayEvents';
 
 function App() {
   const [spyEnabled, setSpyEnabled] = useState(true);
@@ -32,6 +33,7 @@ function App() {
             <Hero />
             <InfoSection />
             <FunnyGallery />
+            <BirthdayEvents />
             <Footer spyEnabled={spyEnabled} onToggleSpy={toggleSpy} />
             {spyEnabled && <SpyModal />}
           </main>
