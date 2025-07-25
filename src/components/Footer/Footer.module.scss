@@ -1,0 +1,125 @@
+.footer {
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  color: var(--bg-light);
+  padding: 5rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  border-top: 4px solid var(--highlight-color);
+  position: relative;
+  z-index: 2;
+
+  a {
+    color: var(--highlight-color);
+    font-weight: bold;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--bg-light);
+      text-shadow: 0 0 10px var(--highlight-color);
+    }
+  }
+
+  .glow {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    margin-bottom: 1rem;
+    animation: glowPulse 2s infinite ease-in-out;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    color: var(--highlight-color);
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  }
+
+  .time {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    color: var(--bg-light);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    animation: fadeClock 1s ease-in-out;
+  }
+
+  .credits {
+    font-size: 0.95rem;
+    opacity: 0.8;
+
+    span {
+      font-weight: bold;
+      color: var(--bg-light);
+      text-shadow: 0 0 3px var(--highlight-color);
+    }
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--highlight-color);
+  }
+  50% {
+    text-shadow: 0 0 20px #fff, 0 0 30px var(--highlight-color);
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--highlight-color);
+  }
+}
+
+@keyframes fadeClock {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  button {
+    background: var(--secondary-color);
+    color: var(--bg-light);
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #444;
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: row;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 90%;
+    justify-content: center;
+
+    button {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}

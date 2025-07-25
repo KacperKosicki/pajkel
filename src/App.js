@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Hero from './components/Hero/Hero';
+import InfoSection from './components/InfoSection/InfoSection';
+import FunnyGallery from './components/FunnyGallery/FunnyGallery';
+import Footer from './components/Footer/Footer';
+import SpyModal from './components/SpyModal/SpyModal';
+import BackgroundMusic from './components/BackgroundMusic/BackgroundMusic';
+import UnlockScreen from './components/UnlockScreen/UnlockScreen'; // ⬅
+import './app.scss';
 
 function App() {
+  const [spyEnabled, setSpyEnabled] = useState(true);
+  const [isUnlocked, setIsUnlocked] = useState(false); // ⬅ nowy stan
+
+  const toggleSpy = () => setSpyEnabled(prev => !prev);
+  const handleUnlock = () => setIsUnlocked(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {!isUnlocked && <UnlockScreen onUnlock={handleUnlock} />}
+      {isUnlocked && (
+        <>
+          <div className="videoBackground">
+            <video autoPlay muted loop playsInline>
+              <source src="/videos/pajkel-tlo.mp4" type="video/mp4" />
+            </video>
+            <div className="videoOverlay" />
+          </div>
+
+          <main className="appWrapper">
+            <BackgroundMusic />
+            <Hero />
+            <InfoSection />
+            <FunnyGallery />
+            <Footer spyEnabled={spyEnabled} onToggleSpy={toggleSpy} />
+            {spyEnabled && <SpyModal />}
+          </main>
+        </>
+      )}
+    </>
   );
 }
 

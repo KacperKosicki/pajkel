@@ -1,0 +1,98 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+  width: 100%;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--highlight-color);
+    text-shadow: 0 0 10px var(--highlight-color);
+  }
+
+  .inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+
+    input {
+      width: 58px;
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      text-align: center;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.3s, border 0.3s;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+        font-weight: 500;
+      }
+
+      &:focus {
+        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .correct {
+      border: 2px solid #00ff7f;
+      background: rgba(0, 255, 127, 0.12);
+    }
+
+    .incorrect {
+      border: 2px solid red;
+      background: rgba(255, 0, 0, 0.12);
+    }
+  }
+
+  button {
+    background: var(--highlight-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: darken(#e50914, 10%);
+    }
+  }
+
+  .errorText {
+    color: red;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .infoText {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #ccc;
+  }
+}
