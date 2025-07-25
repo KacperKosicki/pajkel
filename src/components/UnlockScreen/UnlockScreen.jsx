@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './UnlockScreen.module.scss';
 
-const CORRECT_CODE = '#.Na.€.23.52.X.A3.*.%.12.Q.18.!.2690123793.13'.split('.');
+const CORRECT_CODE = '#.Na.€.23.52.17.A3.*.%.12.Q.18.X.3695.13'.split('.');
 
 const UnlockScreen = ({ onUnlock }) => {
   const [inputValues, setInputValues] = useState(() => {
